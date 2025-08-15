@@ -22,14 +22,13 @@ build-native:
 # Build for Windows x86_64 using GNU toolchain
 build-windows:
 	rustup target add x86_64-pc-windows-gnu
-	cargo build --release --target x86_64-pc-windows-gnu
+	CARGO_TARGET_X86_64_PC_WINDOWS_GNU_LINKER=x86_64-w64-mingw32-g++ RUSTFLAGS="-C target-feature=+crt-static -l stdc++ -l advapi32" cargo build --release --target x86_64-pc-windows-gnu
 	cp target/x86_64-pc-windows-gnu/release/$(BINARY_NAME).exe $(WINDOWS_BIN_DIR)/
 
-# Build for Linux x86_64 (musl for static linking)
+# Build for Linux x86_64 (dynamically linked)
 build-linux:
-	rustup target add x86_64-unknown-linux-musl
-	cargo build --release --target x86_64-unknown-linux-musl
-	cp target/x86_64-unknown-linux-musl/release/$(BINARY_NAME) $(LINUX_BIN_DIR)/
+	cargo build --release --target x86_64-unknown-linux-gnu
+	cp target/x86_64-unknown-linux-gnu/release/$(BINARY_NAME) $(LINUX_BIN_DIR)/
 
 # Build for ARM64 Linux (musl for static linking)
 build-arm64:
