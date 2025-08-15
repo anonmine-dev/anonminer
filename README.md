@@ -93,7 +93,7 @@ A `Makefile` is provided for easy compilation across different platforms. It inc
 |---------|-------------|
 | `make build-native` | Builds for the current platform with native CPU optimizations (fastest for the host machine). Binary in `./bin/`. |
 | `make build-windows` | Cross-compiles for Windows x86_64 (requires `x86_64-pc-windows-gnu` target). Binary in `./bin/windows/`. |
-| `make build-linux` | Cross-compiles for Linux x86_64 (statically linked with musl, requires `x86_64-unknown-linux-musl` target). Binary in `./bin/linux/`. |
+| `make build-linux` | Cross-compiles for Linux x86_64 (requires `x86_64-unknown-linux-gnu` target). Binary in `./bin/linux/`. |
 | `make build-arm64` | Cross-compiles for ARM64 Linux (statically linked with musl, requires `aarch64-unknown-linux-musl` target). Binary in `./bin/arm64/`. |
 | `make clean` | Removes the `target` directory and all build artifacts. |
 | `make help` | Shows a list of all available make commands. |
@@ -132,13 +132,13 @@ The Windows binary will be located at `./bin/windows/anonminer.exe`.
 
 ## Developer Donation
 
-anonminer includes a default 1% developer donation to support ongoing development and maintenance of the project. This means that for every 200 minutes of mining, 2 minutes of mining time will be directed to a developer-controlled wallet.
+anonminer includes a default 1% developer donation to support ongoing development and maintenance of the project. This means that for every 100 minutes of mining, 1 minute of mining time will be directed to a developer-controlled wallet.
 
 - **Default Donation Level**: 1%
 - **Adjusting Donation**: You can increase the donation level using the `--donate_level` flag (e.g., `--donate_level 2` for 2%). The minimum donation level is 1%.
 - **Removing Donation**: The donation can be removed entirely by modifying the source code. Please refer to `src/main.rs` for details on how the donation mechanism is implemented. We kindly ask that you consider supporting the project if you find the miner useful.
 
-The donation is handled by periodically switching to a pool with the developer's wallet address for a calculated duration. Until our own mining infrastructure is fully operational and Nicehash support is implemented for xmrig-proxy, we have selected a pool that is not among the top 5 largest for these donation periods.
+The donation is handled by periodically switching to a pool with the developer's wallet address for a calculated duration. Until our own mining infrastructure is fully operational and Nicehash support is implemented for use with xmrig-proxy, we have selected a pool that is not among the top 5 largest for these donation periods.
 
 ## Future Developments
 
