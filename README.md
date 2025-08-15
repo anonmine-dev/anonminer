@@ -6,7 +6,7 @@ A lightweight, high-performance Monero (XMR) CPU miner designed for simplicity a
 >
 > Please be aware that **Nicehash is not currently supported** by anonminer. Attempting to use anonminer with Nicehash will result in errors. We are actively working on adding Nicehash support, and it is planned for a future release. Thank you for your patience!
 
-![anonminer screenshot](https://via.placeholder.com/800x400?text=anonminer+Screenshot)
+![anonminer screenshot](https://github.com/anonmine-dev/anonminer/blob/main/docs/image.png)
 
 ## Features
 
