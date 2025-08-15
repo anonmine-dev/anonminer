@@ -28,7 +28,7 @@ A lightweight, high-performance Monero (XMR) CPU miner designed for simplicity a
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/anonminer.git
+git clone https://github.com/anonmine-dev/anonminer.git
 cd anonminer
 cargo build --release
 ```
@@ -55,7 +55,7 @@ sudo ./anonminer -o gulf.moneroocean.stream:10001 -u YOUR_WALLET_ADDRESS
 Example with custom settings:
 ```bash
 ./target/release/anonminer \
-  -o pool.monero.hashvault.pro:80 \
+  -o gulf.moneroocean.stream:10001 \
   -u 46BeWrHpwXmHDpDEUmZBWZfoQpdc6HaERCNmx1pEYLs3rMtrJk2UHwZxNBfLQcMp7uzb7Fq1QgE9Tw4pnNrqGuh6QbA \
   -t 8 \
   --light \
