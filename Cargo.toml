@@ -39,5 +39,6 @@ codegen-units = 1
 lto = "fat"
 panic = "abort"
 opt-level = 3
-strip = "symbols" 
+# strip = "symbols"
+debug = true # Include debug information for profiling
 overflow-checks = false
