@@ -62,57 +62,40 @@ Example with custom settings:
   --donate_level 2
 ```
 
-## Build from Source
+## Build from Source (Linux)
 
-We highly recommend building from source to get a native optimized binary for your system. Prebuilt binaries are available for convenience, but compiling from source ensures the best performance.
+Building from source is recommended to achieve the best performance on your specific hardware by enabling native CPU optimizations.
 
-Ensure you have the latest stable Rust toolchain and `make` installed:
+### 1. Install Prerequisites
+
+First, ensure you have Rust and the necessary build tools installed.
 
 ```bash
-# Install Rust (if not already installed)
-curl https://sh.rustup.rs | sh
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.cargo/env # Add Rust to your current session
 
-# On Debian/Ubuntu
-sudo apt-get update
-sudo apt-get install build-essential make
-
-# On Fedora/CentOS/RHEL
-sudo dnf groupinstall "Development Tools" # or yum groupinstall "Development Tools"
-
-# On macOS (using Homebrew)
-brew install make
+# Install build tools (Debian/Ubuntu)
+sudo apt update
+sudo apt install build-essential
 ```
 
-### Using the Makefile
+### 2. Clone the Repository
 
-A `Makefile` is provided for easy compilation across different platforms. It includes highly optimized build settings. The compiled binaries will be placed in the `./bin/` directory.
+```bash
+git clone https://github.com/anonmine-dev/anonminer.git
+cd anonminer
+```
 
-**Available Make Targets:**
+### 3. Build the Project
 
-| Command | Description |
-|---------|-------------|
-| `make build-native` | Builds for the current platform with native CPU optimizations (fastest for the host machine). Binary in `./bin/`. |
-| `make build-windows` | Cross-compiles for Windows x86_64 (requires `x86_64-pc-windows-gnu` target). Binary in `./bin/windows/`. |
-| `make build-linux` | Cross-compiles for Linux x86_64 (requires `x86_64-unknown-linux-gnu` target). Binary in `./bin/linux/`. |
-| `make build-arm64` | Cross-compiles for ARM64 Linux (statically linked with musl, requires `aarch64-unknown-linux-musl` target). Binary in `./bin/arm64/`. |
-| `make clean` | Removes the `target` directory and all build artifacts. |
-| `make help` | Shows a list of all available make commands. |
+Use the provided `Makefile` to compile the miner with native optimizations. The resulting binary will be placed in the `./bin/` directory.
 
-**Example Usage:**
-
-To build for your current machine with maximum optimizations:
 ```bash
 make build-native
 ```
-The optimized binary will be located at `./bin/anonminer`.
 
-To cross-compile for Windows:
-```bash
-make build-windows
-```
-The Windows binary will be located at `./bin/windows/anonminer.exe`.
-
-**Note:** For cross-compilation, you may need to install additional linkers or toolchains. For example, on Debian/Ubuntu, you can install the MinGW toolchain for Windows builds with `sudo apt-get install mingw-w64`.
+After the build completes, you will find the executable at `./bin/anonminer`.
 
 ## Performance Tips
 
